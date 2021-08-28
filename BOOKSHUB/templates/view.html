@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block user %}
+<li class="nav-item dropdown" style="margin-left: 600px;">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     WELCOME {{s['user_name']}}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item" href="/logout">Logout</a></li>
+    </ul>
+  </li>
+{% endblock %}
+{% block content %}
+
+  <!-- adding image and their descriptions-->
+  <div style="max-width: 340px; margin: 50px 400px 200px 200px;">
+    <img src="{{d[0][5]}}" class="img-fluid rounded-start" alt="..."><span> 
+      <div style="position:absolute;
+      top:200px;
+      right:130px; ">
+        
+        <ul style="list-style-type: square;">
+          <li><h3 style="font-style: italic;">PRODUCT ID: {{d[0][0]}}</h3></li>
+          <li ><h3 style="font-style: italic;">PRODUCT NAME: {{d[0][1]}}</h3></li>
+          <li ><h3 style="font-style: italic;">QUANTITY: {{d[0][2]}}</h3></li>
+          <li ><h3 style="font-style: italic;">PRICE: {{d[0][3]}}</h3></li>
+          <li><h3 style="font-style: italic;">DESCRIPTION: {{d[0][4]}}</h3></li>
+          <a href="/buynow/{{d[0][0]}}" class="btn btn-danger" style="margin-top: 25px;" >PLACE ORDER</a>
+        </ul>
+      </div>
+
+
+  </div>
+  
+{% endblock %}

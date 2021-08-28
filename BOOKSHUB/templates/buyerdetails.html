@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block user %}
+<li class="nav-item dropdown" style="margin-left: 600px;">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     WELCOME {{s['user_name']}}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item" href="/logout">Logout</a></li>
+    </ul>
+  </li>
+{% endblock %}
+{% block content %}
+
+<h1 style="margin-top: 20px;margin-left: 500px;">BUYER DETAILS</h1>
+<div class="container" style="margin-top: 70px;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">SNO</th>
+                <th scope="col">PRODUCT ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">MOBILE NO</th>
+                <th scope="col">QUANTITY</th>
+                <th scope="col">ADDRESS</th>
+                <th scope="col">ACTION</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in d %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{data[1]}}</td>
+                <td>{{data[2]}}</td>
+                <td>{{data[3]}}</td>
+                <td>{{data[4]}}</td>
+                <td>{{data[5]}}</td>
+                <td>{{data[6]}}</td>
+                <td><a href="/deletebyid/{{data[0]}}"type="button" class="btn btn-success mx-1">DELETE</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

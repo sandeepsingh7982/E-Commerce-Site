@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block user %}
+<li class="nav-item dropdown" style="margin-left: 600px;">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     WELCOME {{s['user_name']}}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li><a class="dropdown-item" href="/logout">Logout</a></li>
+    </ul>
+  </li>
+{% endblock %}
+{% block content %}
+
+<h1 style="margin-top: 50px; text-align: center;">LIST YOUR BOOKS HERE</h1>
+<div class="container">
+    <form method="POST" action="{{url_for('insert')}}">
+        <div class="mb-3">
+            <label  class="form-label">PRODUCT ID</label>
+            <input type="number" class="form-control" name="product_id" id="product_id" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label" >PRODUCT NAME</label>
+            <input type="text" class="form-control" name="product_name",id="product_name" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">QUANTITY</label>
+            <input type="number" class="form-control" name="qty" id="qty" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">PRICE</label>
+            <input type="number" class="form-control" name="price" id="price" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">DESCRIPTIONS</label>
+            <input type="text" class="form-control" name="desc" id="desc" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">IMAGE URL</label>
+            <input type="text" class="form-control" name="img_url" id="img_url" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 100px;">ADD BOOKS</button> 
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock %}
